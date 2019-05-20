@@ -1,0 +1,35 @@
+FROM alpine:3.8
+
+COPY --from=cyphernode/mosquitto-base:1.6.2 /install /
+
+# etc/mosquitto/pskfile.example
+# etc/mosquitto/pwfile.example
+# etc/mosquitto/mosquitto.conf.example
+# etc/mosquitto/aclfile.example
+# usr/sbin/mosquitto
+# usr/bin/mosquitto_passwd
+# usr/bin/mosquitto_rr
+# usr/bin/mosquitto_sub
+# usr/bin/mosquitto_pub
+# usr/include/mosquitto.h
+# usr/include/mosquitto_broker.h
+# usr/include/mosquittopp.h
+# usr/include/mosquitto_plugin.h
+# usr/lib/pkgconfig/libmosquittopp.pc
+# usr/lib/pkgconfig/libmosquitto.pc
+# usr/lib/libmosquittopp.so.1
+# usr/lib/libmosquitto.so.1
+# usr/share/man/man7/mqtt.7
+# usr/share/man/man7/mosquitto-tls.7
+# usr/share/man/man5/mosquitto.conf.5
+# usr/share/man/man8/mosquitto.8
+# usr/share/man/man3/libmosquitto.3
+# usr/share/man/man1/mosquitto_sub.1
+# usr/share/man/man1/mosquitto_rr.1
+# usr/share/man/man1/mosquitto_pub.1
+# usr/share/man/man1/mosquitto_passwd.1
+
+# or...
+
+COPY --from=eclipse-mosquitto:1.6.2 /usr/bin/mosquitto_rr /usr/bin/mosquitto_sub /usr/bin/mosquitto_pub /usr/bin/
+COPY --from=eclipse-mosquitto:1.6.2 /usr/lib/libmosquitto* /usr/lib/
